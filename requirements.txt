@@ -1,0 +1,2 @@
+pytest>=8.0
+# optional, only for --figure in matplotlib form; the default SVG needs nothing
