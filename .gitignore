@@ -3,3 +3,5 @@ __pycache__/
 .pytest_cache/
 .env
 results/frontier_runs.jsonl
+results/replay_summary.json
+results/*.jsonl
