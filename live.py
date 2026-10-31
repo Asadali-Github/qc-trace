@@ -105,9 +105,10 @@ def load_key() -> Optional[str]:
         return k.strip()
     p = os.path.join(HERE, ".env")
     if os.path.exists(p):
-        for line in open(p, encoding="utf-8"):
-            if line.strip().startswith("OPENROUTER_API_KEY="):
-                return line.split("=", 1)[1].strip().strip('"').strip("'")
+        for line in open(p, encoding="utf-8-sig"):
+            m = re.match(r"\s*(?:export\s+)?OPENROUTER_API_KEY\s*=\s*(.+?)\s*$", line)
+            if m:
+                return m.group(1).strip('"').strip("'")
     return None
 
 class APIError(Exception):
