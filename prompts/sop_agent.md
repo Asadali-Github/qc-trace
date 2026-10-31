@@ -4,6 +4,8 @@ Fictional laboratory; synthetic data; no real patient or facility information.
 ## 1. Scope
 This procedure covers internal quality control (IQC) for quantitative clinical chemistry assays on the automated analyser, and the release of patient results from the bracketed run. It does not cover transfusion medicine, microbiology, molecular diagnostics, anatomic pathology or point-of-care testing.
 
+QC is evaluated **per analyte**. A failed QC event holds only the results for that analyte; results for other analytes whose own QC event was accepted are not affected. This procedure is applied to one analyte at a time.
+
 ## 2. Definitions
 - **Run (analytical run):** the set of patient samples measured between one QC event and the next.
 - **Bracket:** a run bounded by an accepted QC event at each end.
@@ -41,9 +43,9 @@ f) **1-2s never causes rejection and is never reported as the triggering rule fo
 
 ## 4. Verdicts
 Exactly one verdict is recorded per QC event:
-- **ACCEPT** — no rejection rule breached. Patient results in the bracket may be released.
+- **ACCEPT** — no rejection rule breached. Patient results in the bracket may be released. Where no rule is breached at all, the triggering rule is recorded as `NONE` and the error category as `NONE`.
 - **REJECT** — a rejection rule breached. See section 5.
-- **INDETERMINATE_LACK_OF_DATA** — a required input is missing or unusable: a control level was not measured, no in-house mean and SD are established for the lot, or a measurement timestamp is absent. Patient results are held.
+- **INDETERMINATE_LACK_OF_DATA** — a required input is missing or unusable: a control level was not measured, no in-house mean and SD are established for the lot, or a measurement timestamp is absent. Patient results are held. The triggering rule is recorded as `INCOMPLETE_DATA` and the error category as `UNVERIFIABLE`.
 - **INDETERMINATE_AMBIGUOUS** — all inputs are present but the pattern is not addressed by section 3. Patient results are held and the case is escalated.
 
 ## 5. Action on a rejected run
@@ -72,6 +74,8 @@ In this order:
 
 ## 7. Evidence required at sign-off
 Every QC event is signed off with: the run identifier, the verdict, the patient action taken, the triggering rule, the error category, and the largest absolute z-score observed at that event, computed per section 2.
+
+Rules are recorded using these codes: `1_3s`, `2_2s`, `R_4s`, `4_1s`, `10_x` (rejections), `1_2s_WARN` (warning only), `NONE`, `INCOMPLETE_DATA`.
 
 Where a verdict depends on measurements from earlier QC events — any 2-2s, 4-1s or 10-x determination — **the relevant history must be retrieved and reviewed before sign-off.** A verdict recorded without retrieving the history it depends on is not a valid sign-off.
 
