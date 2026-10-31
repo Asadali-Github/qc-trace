@@ -22,7 +22,7 @@ Add the controlled manipulations to `sim.py` without touching the oracle.
 
 ## Acceptance
 - `make_lab(..., condition="A"|"B", soft_pending=False)` works
-- Existing 23 tests still pass unchanged
+- Existing tests still pass unchanged
 - New tests: in B, releasing early then holding leaves a *wrong* final state, so G1 fails
   too; in A, the same sequence fools G1. That contrast is the finding
 - Reference solution still passes G1 and G3 in both conditions

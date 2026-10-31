@@ -22,7 +22,7 @@ Before writing any code:
    must not be claimed as new, and five rules that must never be broken.
 2. Read docs/parts/P3-model-harness.md. That is your assignment. Do not read the other
    part files.
-3. Run `python -m pytest tests -q` and confirm 23 tests pass before you change anything.
+3. Run `python -m pytest tests -q` and confirm all tests pass before you change anything.
 
 Then do P3, working on a branch called p3-model-harness.
 
@@ -35,7 +35,7 @@ Rules for you:
   it.
 - Do not modify qc_rules.py, tasks.py, graders.py or the SOP. P3 does not touch those.
 - Keep `python run_eval.py` working with zero dependencies and no API key.
-- Run the test suite again when you're done. All 23 must still pass.
+- Run the test suite again when you're done. All must still pass.
 - Never write a number into any document that hasn't been measured.
 
 Tell me when the smoke test result is in before going further.
@@ -69,7 +69,7 @@ SOP.
 
 ```
 Read docs/HANDOVER.md, then docs/parts/P1-environment.md. That is your assignment; don't
-read the other part files. Run `python -m pytest tests -q` first and confirm 23 pass.
+read the other part files. Run `python -m pytest tests -q` first and confirm all pass.
 
 Build P1 on a branch called p1-environment. Do not touch qc_rules.py, tasks.py gold
 verdicts, or the invariant definitions in graders.py.

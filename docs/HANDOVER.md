@@ -75,7 +75,7 @@ regulatory grounding, and execution quality — not a new idea.
 
 ```bash
 python run_eval.py          # ~2s, no dependencies, no API key, no network
-python -m pytest tests -q   # 23 tests, under a second
+python -m pytest tests -q   # 30 tests, under a second
 ```
 
 | Check | Result |
