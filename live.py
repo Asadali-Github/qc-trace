@@ -125,6 +125,9 @@ def chat(key, body, retries=14) -> Dict[str, Any]:  # ~20 min of waiting covers 
             with urllib.request.urlopen(req, timeout=180) as r:
                 out = json.loads(r.read().decode())
             if "error" in out:
+                code = (out["error"] or {}).get("code") if isinstance(out["error"], dict) else None
+                if code in (408, 429, 500, 502, 503, 504) and attempt < retries - 1:
+                    time.sleep(wait); wait = min(wait * 2, 120); continue
                 raise APIError(json.dumps(out["error"])[:400])
             return out
         except urllib.error.HTTPError as e:
