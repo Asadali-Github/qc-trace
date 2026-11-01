@@ -114,7 +114,7 @@ def load_key() -> Optional[str]:
 class APIError(Exception):
     pass
 
-def chat(key, body, retries=6) -> Dict[str, Any]:
+def chat(key, body, retries=14) -> Dict[str, Any]:  # ~20 min of waiting covers wifi re-login drops
     data = json.dumps(body).encode()
     wait = 5.0
     for attempt in range(retries):
@@ -130,12 +130,12 @@ def chat(key, body, retries=6) -> Dict[str, Any]:
         except urllib.error.HTTPError as e:
             msg = e.read().decode(errors="replace")[:400]
             if e.code in (408, 429, 500, 502, 503, 504) and attempt < retries - 1:
-                time.sleep(wait); wait = min(wait * 2, 90); continue
+                time.sleep(wait); wait = min(wait * 2, 120); continue
             raise APIError(f"HTTP {e.code}: {msg}")
         except (urllib.error.URLError, TimeoutError, ConnectionError,
                 http.client.HTTPException, json.JSONDecodeError) as e:
             if attempt < retries - 1:
-                time.sleep(wait); wait = min(wait * 2, 90); continue
+                time.sleep(wait); wait = min(wait * 2, 120); continue
             raise APIError(f"network: {e}")
     raise APIError("retries exhausted")
 
