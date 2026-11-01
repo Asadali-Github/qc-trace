@@ -329,7 +329,7 @@ def run_grid(models, families, seeds, scaffold="L2", trials=1, temperature=0.0,
                 print(f"stopping: only {q.get('remaining')} free requests left today "
                       f"(a run needs about 6-10). Resume tomorrow; finished runs are kept.")
                 break
-        if spent > budget_usd:
+        if not m.endswith(":free") and spent > budget_usd:
             print(f"stopping: spend ${spent:.4f} is over the budget ${budget_usd:.2f}")
             break
         rec = run_one(key, m, f, s, scaffold, t, temperature, max_turns=max_turns)
