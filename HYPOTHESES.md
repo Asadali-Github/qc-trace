@@ -119,3 +119,8 @@ time of writing: Haiku, Terra, Argon and Nemotron Super complete; Nemotron Ultra
 H1-H4 are unchanged; these models are added to the same analyses. If the spend cap stops
 a grid early, the completed runs are reported with the shortfall stated.
 
+### Amendment 3 — 1 Nov 2026, before any Opus run
+The author removed the key's spend limit and is adding credit, so `anthropic/claude-opus-5.5`
+runs the full grid (seeds 1-2, 54 runs) instead of seed 1 only. No Opus run existed when
+this was written.
+
