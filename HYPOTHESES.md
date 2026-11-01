@@ -91,4 +91,16 @@ A small or null effect is a valid result and will be reported as such.
 
 ## Amendments
 
-(none yet)
+### Amendment 1 — 1 Nov 2026, before any paid-model run
+Paid models for the main grid, named before any of them is run (OpenRouter IDs, prices
+as listed on 1 Nov 2026):
+- `google/gemini-4-argon` (flagship frontier, $2 / $10 per M tokens in / out)
+- `openai/gpt-6.1-terra` (mid tier, $1 / $5)
+- `anthropic/claude-haiku-5.5` (small, $0.10 / $0.50)
+
+Same design as above: families 1-9, seeds 1-2, K = 3, temperature 0.7, L2, same SOP and
+graders. Budget: $10 credit in total. The first completed run of each paid model is used
+to project the cost of its full grid; if the projection exceeds the remaining budget the
+grid for that model is cut to seed 1 only (27 runs), decided before any of its results
+are looked at, and the cut is reported. If a provider rejects temperature 0.7, its
+default temperature is used and that is reported.
