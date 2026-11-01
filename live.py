@@ -13,7 +13,7 @@ replaying those calls against a fresh, deterministic simulator. No model re-call
 The API key is read from the OPENROUTER_API_KEY environment variable, or from a
 gitignored .env file in the repo root. It is never printed or written to a record.
 """
-import json, os, re, time, urllib.request, urllib.error
+import http.client, json, os, re, time, urllib.request, urllib.error
 from typing import Any, Dict, List, Optional
 
 from tasks import build
@@ -132,7 +132,8 @@ def chat(key, body, retries=6) -> Dict[str, Any]:
             if e.code in (408, 429, 500, 502, 503, 504) and attempt < retries - 1:
                 time.sleep(wait); wait = min(wait * 2, 90); continue
             raise APIError(f"HTTP {e.code}: {msg}")
-        except (urllib.error.URLError, TimeoutError) as e:
+        except (urllib.error.URLError, TimeoutError, ConnectionError,
+                http.client.HTTPException, json.JSONDecodeError) as e:
             if attempt < retries - 1:
                 time.sleep(wait); wait = min(wait * 2, 90); continue
             raise APIError(f"network: {e}")
