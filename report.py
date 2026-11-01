@@ -26,7 +26,7 @@ def _slug(s: str) -> str:
     return re.sub(r"[^A-Za-z0-9._-]+", "_", s)
 
 
-def completed_runs(path=live.RUNS_PATH) -> List[Dict]:
+def completed_runs(path=None) -> List[Dict]:
     out = []
     for r in live.load_runs(path):
         if r.get("status") == "completed":
