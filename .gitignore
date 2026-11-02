@@ -2,6 +2,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .env
-results/frontier_runs.jsonl
-results/replay_summary.json
-results/*.jsonl
+results/*.log
+dist/
+keep_awake.ps1
