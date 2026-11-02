@@ -241,7 +241,7 @@ def write_all():
     for r in allruns:
         d = os.path.join(TX_DIR, _slug(r["model"]))
         os.makedirs(d, exist_ok=True)
-        tag = "pilot_" if r in pilot else ""
+        tag = "pilot_" if r in pilot else (f"{r['prompt_variant']}_" if r in ablation else "")
         name = (f"{tag}{r['instance_id']}_{r['scaffold']}_t{r['trial']}_"
                 f"{'pass' if r['grades']['G3'] else 'FAIL'}.md")
         open(os.path.join(d, name), "w", encoding="utf-8").write(transcript_md(r))
