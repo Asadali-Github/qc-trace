@@ -89,6 +89,10 @@ Candidates only. Each is read and coded by hand before it counts.
 | F7-S2 t1 | `anthropic/claude-opus-5.5` | ACCEPT | yes | 63  **Rule checks** (using the previous 10 events, T7-00 to T7-09, which I reviewed): - **1-2s, 1-3s, 2-2s, R-4s:** no value is beyond 2 SD. |
 | F7-S2 t2 | `anthropic/claude-opus-5.5` | ACCEPT | yes | 63  **Rules (none breached):** - **1-2s, 1-3s, R-4s:** nothing is beyond 2 SD. |
 
+## Prompt-order ablation (HYPOTHESES amendment 5; not pooled)
+
+(not run)
+
 ## Pilot runs (temperature 0, before pre-registration; not pooled)
 
 (none)

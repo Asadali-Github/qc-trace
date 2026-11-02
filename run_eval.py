@@ -123,6 +123,7 @@ if __name__ == "__main__":
                     help="stop once total recorded spend exceeds this (default 0 = free only)")
     ap.add_argument("--max-turns", type=int, default=30)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--prompt-variant", default="default", choices=["default", "sign_first", "neutral"])
     ap.add_argument("--figure", action="store_true")
     a = ap.parse_args()
     if a.mode == "live":
@@ -131,7 +132,7 @@ if __name__ == "__main__":
         import live
         live.run_grid([m.strip() for m in a.model.split(",") if m.strip()],
                       _ints(a.families), range(1, a.seeds + 1), a.scaffold, a.trials,
-                      a.temperature, a.dry_run, a.budget_usd, a.max_turns)
+                      a.temperature, a.prompt_variant, a.dry_run, a.budget_usd, a.max_turns)
         sys.exit(0)
     if a.mode == "grade":
         import live
@@ -140,3 +141,7 @@ if __name__ == "__main__":
     os.makedirs("results", exist_ok=True)
     json.dump(s, open("results/replay_summary.json", "w"), indent=2)
     if a.figure: svg_figure(s)
+    import live
+    if live.load_runs():
+        print("\nModel results (main grid, re-graded offline from the saved tool calls):\n")
+        live.grade_report()
