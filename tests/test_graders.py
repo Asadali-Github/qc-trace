@@ -158,3 +158,11 @@ def test_repair_on_drift_still_fails():
     for fam in (5, 7):
         lab, g, ez = _repair(fam, 1, recal=False)
         assert not G3(lab, g, ez)["passed"], fam
+
+
+def test_pass_at_k_and_pass_hat_k_bracket_the_mean():
+    from stats import pass_at_k, pass_hat_k, pass_at_1
+    by_task = {"a": [1, 1, 1], "b": [0, 1, 0], "c": [0, 0, 0]}
+    assert pass_at_k(by_task, 3) == pytest.approx(2 / 3)   # a and b passed at least once
+    assert pass_hat_k(by_task, 3) == pytest.approx(1 / 3)  # only a passed every time
+    assert pass_hat_k(by_task, 3) <= pass_at_1(by_task) <= pass_at_k(by_task, 3)

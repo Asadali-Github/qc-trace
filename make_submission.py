@@ -27,11 +27,12 @@ with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as z:
             full = os.path.join(root, f)
             rel = os.path.relpath(full, HERE)
             if wanted(rel):
-                z.write(full, os.path.join("qc-trace", rel)); n += 1
+                z.write(full, rel.replace("\\", "/")); n += 1
 # safety checks
 with zipfile.ZipFile(OUT) as z:
     names = z.namelist()
-    assert not any(n.endswith("/.env") for n in names), ".env must not be packaged"
+    assert "README.md" in names, "README.md must be at the zip root"
+    assert not any(n == ".env" or n.endswith("/.env") for n in names), ".env must not be packaged"
     for nm in names:
         if nm.endswith((".py", ".md", ".jsonl", ".txt", ".ps1", ".example")):
             body = z.read(nm).decode("utf-8", "ignore")
