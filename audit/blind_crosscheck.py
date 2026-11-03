@@ -173,7 +173,9 @@ def cmd_score():
                        {k: v.get("verdict") == "PASS" for k, v in labs.items() if v.get("verdict") in ("PASS", "FAIL")}))
     if os.path.exists(AUTHOR):
         al = json.load(open(AUTHOR, encoding="utf-8"))
-        raters.append(("Author (lab assistant)", {k: str(v).strip().lower().startswith("sahi") for k, v in al.items()}))
+        al = {k: v for k, v in al.items() if str(v).strip()}      # blank = not labelled yet
+        if al:
+            raters.append(("Author (lab assistant)", {k: str(v).strip().lower().startswith("sahi") for k, v in al.items()}))
     for name, lab in raters:
         pairs = [(lab[c], cases[c]["G3"]) for c in sorted(lab)]
         n, a, k, (lo, hi) = agreement(pairs)
