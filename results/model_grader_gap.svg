@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300" font-family="Helvetica, Arial, sans-serif">
+<rect width="1000" height="300" fill="#fff"/>
+<text x="60" y="30" font-size="15" font-weight="600" fill="#111">Same 54 runs per model: final-state grader (G1) vs log checker (G3)</text>
+<text x="60" y="48" font-size="11" fill="#666">blue = G1 final-state grader &#183; red = G3 deterministic invariant checker</text>
+<line x1="60" y1="240" x2="940" y2="240" stroke="#ccc"/>
+<rect x="60.0" y="85.0" width="42.3" height="155.0" fill="#4C78A8"/>
+<text x="81.2" y="79.0" font-size="11" text-anchor="middle" fill="#333">100%</text>
+<rect x="102.3" y="85.0" width="42.3" height="155.0" fill="#E45756"/>
+<text x="123.5" y="79.0" font-size="11" text-anchor="middle" fill="#333">100%</text>
+<text x="102.3" y="256.0" font-size="11" text-anchor="middle" fill="#333">gpt-6.1-sol</text>
+<rect x="170.0" y="85.0" width="42.3" height="155.0" fill="#4C78A8"/>
+<text x="191.2" y="79.0" font-size="11" text-anchor="middle" fill="#333">100%</text>
+<rect x="212.3" y="85.0" width="42.3" height="155.0" fill="#E45756"/>
+<text x="233.5" y="79.0" font-size="11" text-anchor="middle" fill="#333">100%</text>
+<text x="212.3" y="256.0" font-size="11" text-anchor="middle" fill="#333">gpt-6.1-terra</text>
+<rect x="280.0" y="85.0" width="42.3" height="155.0" fill="#4C78A8"/>
+<text x="301.2" y="79.0" font-size="11" text-anchor="middle" fill="#333">100%</text>
+<rect x="322.3" y="113.7" width="42.3" height="126.3" fill="#E45756"/>
+<text x="343.5" y="107.7" font-size="11" text-anchor="middle" fill="#333">81%</text>
+<text x="322.3" y="256.0" font-size="11" text-anchor="middle" fill="#333">claude-opus-5.5</text>
+<rect x="390.0" y="87.9" width="42.3" height="152.1" fill="#4C78A8"/>
+<text x="411.2" y="81.9" font-size="11" text-anchor="middle" fill="#333">98%</text>
+<rect x="432.3" y="113.7" width="42.3" height="126.3" fill="#E45756"/>
+<text x="453.5" y="107.7" font-size="11" text-anchor="middle" fill="#333">81%</text>
+<text x="432.3" y="256.0" font-size="11" text-anchor="middle" fill="#333">nemotron-3-ultra</text>
+<rect x="500.0" y="90.7" width="42.3" height="149.3" fill="#4C78A8"/>
+<text x="521.2" y="84.7" font-size="11" text-anchor="middle" fill="#333">96%</text>
+<rect x="542.3" y="128.1" width="42.3" height="111.9" fill="#E45756"/>
+<text x="563.5" y="122.1" font-size="11" text-anchor="middle" fill="#333">72%</text>
+<text x="542.3" y="256.0" font-size="11" text-anchor="middle" fill="#333">nemotron-3.5-super</text>
+<rect x="610.0" y="87.9" width="42.3" height="152.1" fill="#4C78A8"/>
+<text x="631.2" y="81.9" font-size="11" text-anchor="middle" fill="#333">98%</text>
+<rect x="652.3" y="130.9" width="42.3" height="109.1" fill="#E45756"/>
+<text x="673.5" y="124.9" font-size="11" text-anchor="middle" fill="#333">70%</text>
+<text x="652.3" y="256.0" font-size="11" text-anchor="middle" fill="#333">claude-haiku-5.5</text>
+<rect x="720.0" y="85.0" width="42.3" height="155.0" fill="#4C78A8"/>
+<text x="741.2" y="79.0" font-size="11" text-anchor="middle" fill="#333">100%</text>
+<rect x="762.3" y="148.1" width="42.3" height="91.9" fill="#E45756"/>
+<text x="783.5" y="142.1" font-size="11" text-anchor="middle" fill="#333">59%</text>
+<text x="762.3" y="256.0" font-size="11" text-anchor="middle" fill="#333">gemini-4-argon</text>
+<rect x="830.0" y="85.0" width="42.3" height="155.0" fill="#4C78A8"/>
+<text x="851.2" y="79.0" font-size="11" text-anchor="middle" fill="#333">100%</text>
+<rect x="872.3" y="153.9" width="42.3" height="86.1" fill="#E45756"/>
+<text x="893.5" y="147.9" font-size="11" text-anchor="middle" fill="#333">56%</text>
+<text x="872.3" y="256.0" font-size="11" text-anchor="middle" fill="#333">claude-sonnet-5.5</text>
+</svg>
