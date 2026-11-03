@@ -129,7 +129,7 @@ if __name__ == "__main__":
                     help="stop once total recorded spend exceeds this (default 0 = free only)")
     ap.add_argument("--max-turns", type=int, default=30)
     ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--prompt-variant", default="default", choices=["default", "sign_first", "neutral"])
+    ap.add_argument("--prompt-variant", default="default", choices=["default", "sign_first", "neutral", "serial"])
     ap.add_argument("--figure", action="store_true")
     a = ap.parse_args()
     if a.mode == "live":
