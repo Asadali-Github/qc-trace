@@ -99,7 +99,7 @@ def svg_figure(summary, path="results/grader_gap.svg",
 <line x1="{pad}" y1="{H-pad}" x2="{W-pad}" y2="{H-pad}" stroke="#ccc"/>
 {chr(10).join(bars)}
 </svg>'''
-    open(path, "w", encoding="utf-8").write(svg)
+    open(path, "w", encoding="utf-8", newline="\n").write(svg)
     print(f"figure written: {path}")
 
 def short_model(m):
@@ -145,7 +145,7 @@ if __name__ == "__main__":
         live.grade_report(); sys.exit(0)
     s = report(range(1, a.seeds + 1))
     os.makedirs("results", exist_ok=True)
-    json.dump(s, open("results/replay_summary.json", "w"), indent=2)
+    json.dump(s, open("results/replay_summary.json", "w", encoding="utf-8", newline="\n"), indent=2)
     if a.figure: svg_figure(s)
     import live
     if live.load_runs():
